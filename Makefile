@@ -27,6 +27,14 @@ Waypoints/waypoint.o: Waypoints/waypoint.c
 movement: movement.o gpio.o GPSLib/gps.o Compass/compass.o Waypoints/waypoint.o
 	gcc $(CFLAGS) $^ -lm -o $@
 
+.PHONY: CompassExample, GPSExample
+CompassExample: Compass/compass.c Compass/main.c Compass/calibrate.c
+	gcc $(CFLAGS) Compass/main.c Compass/compass.c -o Compass/main
+	gcc $(CFLAGS) Compass/calibrate.c Compass/compass.c -o Compass/calibrate
+
+GPSExample: GPSLib/gps.c GPSLib/main.c
+	gcc $(CFLAGS) $^ -o GPSLib/main
+
 .PHONY: sharedLibs
 sharedLibs: Compass/compass.c GPSLib/gps.c
 	gcc -shared -fPIC -o sharedLibs/compassLib.so Compass/compass.c
@@ -35,6 +43,6 @@ sharedLibs: Compass/compass.c GPSLib/gps.c
 	gcc $(CFLAGS) -shared -fPIC -o sharedLibs/movementLib.so movement.c Waypoints/waypoint.c Compass/compass.c GPSLib/gps.c gpio.c
 
 cleanAll: 
-	rm movement movement.o gpio.o GPSLib/gps.o Compass/compass.o sharedLibs/*
+	@rm -f movement movement.o gpio.o GPSLib/gps.o Compass/compass.o sharedLibs/* Compass/calibrate Compass/main GPSLib/main
 
 
