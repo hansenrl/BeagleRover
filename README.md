@@ -14,30 +14,30 @@ as well as query the GPS and compass sensors.
 The code is structured for two types of interaction
 
 1. Stand-alone control and navigation
- * main code located in movement.c
+* main code located in movement.c
 2. Remote operation via Python
- * communications layer in Python located in networkPython folder, and shared libraries compiled into sharedLibs folder
+* communications layer in Python located in networkPython folder, and shared libraries compiled into sharedLibs folder
 
 	make
 	make clean
 
-## Compass
+### Compass
 
 The main compass code is located in *compass.c*. This file includes routines for initialization, calibrating the compass, and reading the heading. Two sample code files are included, *calibrate.c* runs the calibration routine of the compass for 10 seconds, during which time the user should rotate the compass axially twice for calibration. *main.c* will initiaze the compass and print the compass reading at a frequency of 5 Hz. 
 
 These can be complied with gcc, or using make from the project directory
 	make CompassExample
 
-## GPS
+### GPS
 
 The main GPS code is located in *gps.c*, and the dataGPS structure for passing around GPS data is located in *gps.h*. An example program that prints the current GPS location is shown in main.c, and can be compiled with gcc or make
 	make GPSExample
 
-## Waypoints
+### Waypoints
 
 Although not fully functional as of 11/12/2012, prototype helper code for waypoint navigation is located in Waypoints.
 
-## Network Python
+### Network Python
 
 *boneMovementServer.py* is Python code designed to be run on the Bone, and will setup a server to listen for movement commands from a client. It can be started with the command
 	python boneMovementServer.py <IP-ADDRESS> <PORT>
