@@ -37,6 +37,7 @@ GPSExample: GPSLib/gps.c GPSLib/main.c
 
 .PHONY: sharedLibs
 sharedLibs: Compass/compass.c GPSLib/gps.c
+	mkdir -p sharedLibs
 	gcc -shared -fPIC -o sharedLibs/compassLib.so Compass/compass.c
 	gcc -shared -fPIC -o sharedLibs/gpsLib.so GPSLib/gps.c
 	gcc -shared -fPIC -o sharedLibs/waypointLib.so Waypoints/waypoint.c
