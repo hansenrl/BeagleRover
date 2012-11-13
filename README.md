@@ -14,7 +14,7 @@ The code is structured for two types of interaction
 
 ```
 make		# compiles movement binary and shared libraries
-make clean	# removes all compiled objects
+make clean	# removes all compiled objects and binaries
 ```
 
 ## Stand-Alone Operation
