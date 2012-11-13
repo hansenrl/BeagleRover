@@ -13,7 +13,7 @@ The code is structured for two types of interaction
  * communications layer in Python located in networkPython folder, and shared libraries compiled into sharedLibs folder
 
 ```
-make		# compiles movement and shared libraries
+make		# compiles movement binary and shared libraries
 make clean	# removes all compiled objects
 ```
 
