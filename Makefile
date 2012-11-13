@@ -44,6 +44,6 @@ sharedLibs: Compass/compass.c GPSLib/gps.c
 	gcc $(CFLAGS) -shared -fPIC -o sharedLibs/movementLib.so movement.c Waypoints/waypoint.c Compass/compass.c GPSLib/gps.c gpio.c
 
 cleanAll: 
-	@rm -f movement movement.o gpio.o GPSLib/gps.o Compass/compass.o sharedLibs/* Compass/calibrate Compass/main GPSLib/main
+	@rm -f movement movement.o gpio.o GPSLib/gps.o Compass/compass.o Waypoints/waypoint.o sharedLibs/* Compass/calibrate Compass/main GPSLib/main
 
 
